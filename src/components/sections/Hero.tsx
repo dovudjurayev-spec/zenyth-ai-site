@@ -89,7 +89,7 @@ const Hero = () => {
             <p className="ttl-reveal ttl-delay-1 mt-8 max-w-3xl text-base leading-relaxed text-white/78 sm:text-2xl">
               Replacing passive screen time with structured real-world sessions.
             </p>
-            <form onSubmit={handleSubmit} className="ttl-reveal ttl-delay-2 mt-11 max-w-[34rem]">
+            <form onSubmit={handleSubmit} className="ttl-reveal ttl-delay-2 mt-11 w-full max-w-[34rem]">
               <div className="waitlist-form-shell">
                 <input
                   type="email"
