@@ -19,7 +19,7 @@ const BehavioralProblem = () => {
       </article>
       <div className="space-y-7">
         {behavioralProblem.map((item, index) => (
-          <article key={item} className="glass-item">
+          <article key={item} className="behavior-signal">
             <p className="text-xs uppercase tracking-[0.16em] text-white/50">Signal 0{index + 1}</p>
             <p className="mt-2 muted-copy">{item}</p>
           </article>

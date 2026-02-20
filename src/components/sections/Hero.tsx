@@ -89,30 +89,32 @@ const Hero = () => {
             <p className="ttl-reveal ttl-delay-1 mt-8 max-w-3xl text-base leading-relaxed text-white/78 sm:text-2xl">
               Replacing passive screen time with structured real-world sessions.
             </p>
-            <form onSubmit={handleSubmit} className="ttl-reveal ttl-delay-2 mt-6 w-full max-w-[34rem] sm:mt-11">
+              <form onSubmit={handleSubmit} className="ttl-reveal ttl-delay-2 mt-8 w-full max-w-[34rem] sm:mt-11 mx-auto">
               <div className="waitlist-form-shell">
-                <input
-                  type="email"
-                  inputMode="email"
-                  autoComplete="email"
-                  placeholder="Enter your email"
-                  value={email}
-                  onChange={(event) => {
-                    setEmail(event.target.value);
-                    setStatus("idle");
-                  }}
-                  className="waitlist-input"
-                  aria-label="Email"
-                />
-                <button type="submit" className="waitlist-button" disabled={!isEmailValid || isLoading}>
-                  {isLoading ? "Joining..." : "Join Early Access"}
-                </button>
+                <div className="waitlist-controls">
+                  <input
+                    type="email"
+                    inputMode="email"
+                    autoComplete="email"
+                    placeholder="Enter your email"
+                    value={email}
+                    onChange={(event) => {
+                      setEmail(event.target.value);
+                      setStatus("idle");
+                    }}
+                    className="waitlist-input"
+                    aria-label="Email"
+                  />
+                  <button type="submit" className="waitlist-button" disabled={!isEmailValid || isLoading}>
+                    {isLoading ? "Joining..." : "Join Early Access"}
+                  </button>
+                </div>
+                <p className="waitlist-status" aria-live="polite">
+                  {status === "success" ? "You're on the list." : null}
+                  {status === "duplicate" ? "You're already on the list." : null}
+                  {status === "error" ? "Something went wrong." : null}
+                </p>
               </div>
-              <p className="mt-3 min-h-[1.5rem] text-sm font-medium text-white/80" aria-live="polite">
-                {status === "success" ? "You're on the list." : null}
-                {status === "duplicate" ? "You're already on the list." : null}
-                {status === "error" ? "Something went wrong." : null}
-              </p>
             </form>
           </div>
 
