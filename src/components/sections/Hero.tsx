@@ -89,7 +89,7 @@ const Hero = () => {
             <p className="ttl-reveal ttl-delay-1 mt-8 max-w-3xl text-base leading-relaxed text-white/78 sm:text-2xl">
               Replacing passive screen time with structured real-world sessions.
             </p>
-            <form onSubmit={handleSubmit} className="ttl-reveal ttl-delay-2 mt-11 w-full max-w-[34rem]">
+            <form onSubmit={handleSubmit} className="ttl-reveal ttl-delay-2 mt-6 w-full max-w-[34rem] sm:mt-11">
               <div className="waitlist-form-shell">
                 <input
                   type="email"
@@ -108,7 +108,7 @@ const Hero = () => {
                   {isLoading ? "Joining..." : "Join Early Access"}
                 </button>
               </div>
-              <p className="mt-3 min-h-[1.5rem] text-sm text-white/75" aria-live="polite">
+              <p className="mt-3 min-h-[1.5rem] text-sm font-medium text-white/80" aria-live="polite">
                 {status === "success" ? "You're on the list." : null}
                 {status === "duplicate" ? "You're already on the list." : null}
                 {status === "error" ? "Something went wrong." : null}
