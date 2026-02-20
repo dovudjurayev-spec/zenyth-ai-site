@@ -116,7 +116,7 @@ const Hero = () => {
             </form>
           </div>
 
-          <div className="mt-12 flex justify-center lg:mt-0 lg:justify-end">
+          <div className="hidden lg:flex mt-12 justify-center lg:mt-0 lg:justify-end">
             <div className="hero-object-shell">
               <img
                 src={heroObjectSrc}
