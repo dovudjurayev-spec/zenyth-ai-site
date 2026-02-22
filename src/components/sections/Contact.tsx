@@ -19,10 +19,10 @@ const Contact = () => {
           <li className="glass-item">
             <p className="text-xs uppercase tracking-[0.16em] text-white/45">Email</p>
             <a
-              href="mailto:dovud.jurayev@icloud.com"
+              href="mailto:info@zenyth.ink"
               className="mt-3 inline-block break-all text-2xl text-white transition-opacity hover:opacity-70 sm:text-3xl"
             >
-              dovud.jurayev@icloud.com
+              info@zenyth.ink
             </a>
           </li>
         </ul>
