@@ -9,11 +9,11 @@ const CurrentSolutionsFail = () => {
       className="py-28 sm:py-32"
       contentClassName="max-w-prose"
     >
-      <ol className="space-y-8">
+      <ol className="flex flex-col gap-3">
         {solutionFailures.map((item, index) => (
-          <li key={item} className="glass-item grid gap-2 sm:grid-cols-[5rem_1fr]">
-            <span className="text-sm text-white/45">0{index + 1}</span>
-            <p className="muted-copy">{item}</p>
+          <li key={item} className="glass-item grid items-center gap-4 sm:grid-cols-[3rem_1fr] !py-4">
+            <span className="text-sm font-medium tracking-wider text-white/45">0{index + 1}</span>
+            <p className="m-0 leading-snug text-white/70">{item}</p>
           </li>
         ))}
       </ol>

@@ -153,103 +153,79 @@
   }
 
   .waitlist-form-shell {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     gap: 0.75rem;
-    border-radius: 1rem;
-    border: 1px solid rgba(186, 209, 255, 0.34);
-    background:
-      linear-gradient(155deg, rgba(20, 37, 69, 0.62) 0%, rgba(7, 14, 28, 0.72) 100%),
-      rgba(8, 14, 27, 0.5);
-    box-shadow:
-      inset 0 1px 0 rgba(229, 239, 255, 0.18),
-      0 14px 32px rgba(2, 8, 18, 0.32);
-    padding: 0.75rem;
-    justify-items: stretch;
+    width: 100%;
+    margin: 0 auto;
     text-align: left;
   }
 
   .waitlist-controls {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     gap: 0.75rem;
     width: 100%;
   }
 
   .waitlist-input {
     width: 100%;
-    min-height: 3.75rem;
-    border-radius: 0.75rem;
-    border: 1px solid rgba(174, 202, 255, 0.26);
-    background: rgba(6, 11, 21, 0.52);
-    color: rgba(243, 247, 255, 0.96);
+    min-height: 3.5rem;
+    border-radius: 0.6rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.03);
+    color: rgba(255, 255, 255, 0.9);
     font-size: 1rem;
-    line-height: 1.2;
-    padding: 0 1.05rem;
+    padding: 0 1.2rem;
     outline: none;
-    transition: border-color 180ms ease;
+    transition: all 0.2s ease;
   }
 
   .waitlist-input::placeholder {
-    color: rgba(231, 239, 251, 0.5);
+    color: rgba(255, 255, 255, 0.4);
   }
 
   .waitlist-input:focus {
-    border-color: rgba(199, 221, 255, 0.62);
-    box-shadow: 0 0 0 1px rgba(199, 221, 255, 0.24);
-  }
-
-  /* Make input and button a bit larger and taller on small screens */
-  @media (max-width: 640px) {
-    .waitlist-form-shell {
-      padding: 1.1rem;
-      min-height: auto;
-      border-radius: 1.1rem;
-      border-color: rgba(198, 220, 255, 0.5);
-      align-content: start;
-      gap: 1.05rem;
-      justify-items: center;
-      text-align: center;
-    }
-
-    .waitlist-input {
-      font-size: 1.125rem;
-      padding: 1.15rem 1.1rem;
-      border-radius: 1rem;
-    }
-
-    .waitlist-button {
-      font-size: 1.02rem;
-      font-weight: 600;
-      padding: 1.15rem 1.2rem;
-      border-radius: 1rem;
-    }
+    border-color: rgba(255, 255, 255, 0.3);
   }
 
   .waitlist-button {
     width: 100%;
-    min-height: 3.75rem;
+    min-height: 3.5rem;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    border-radius: 0.75rem;
-    border: 1px solid rgba(201, 221, 255, 0.38);
-    background: linear-gradient(135deg, rgba(16, 35, 66, 0.98) 0%, rgba(35, 70, 118, 0.96) 100%);
-    color: rgba(255, 255, 255, 0.97);
-    font-size: 0.975rem;
-    font-weight: 500;
-    padding: 0 1rem;
-    transition:
-      transform 180ms ease,
-      border-color 180ms ease;
+    gap: 0.5rem;
+    border-radius: 0.5rem;
+    border: none;
+    background: #3b82f6;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0 1.5rem;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(59, 130, 246, 0.2);
+  }
+
+  .waitlist-button::after {
+    content: "→";
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-left: -0.1rem;
   }
 
   .waitlist-button:hover:not(:disabled) {
     transform: translateY(-1px);
-    border-color: rgba(214, 231, 255, 0.45);
+    background: #4f8cf6;
+    box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4);
   }
 
   .waitlist-button:disabled {
     cursor: not-allowed;
-    opacity: 0.55;
+    opacity: 0.6;
+    box-shadow: none;
   }
 
   .waitlist-status {
@@ -258,6 +234,40 @@
     font-size: 0.875rem;
     font-weight: 500;
     color: rgba(240, 247, 255, 0.85);
+    padding-left: 0.5rem;
+  }
+
+  /* Desktop layout: The "Pill" design */
+  @media (min-width: 640px) {
+    .waitlist-controls {
+      flex-direction: row;
+      align-items: center;
+      gap: 0;
+      border-radius: 0.75rem;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.04);
+      padding: 0.35rem 0.35rem 0.35rem 1.25rem;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+    }
+
+    .waitlist-input {
+      flex: 1;
+      min-height: 3rem;
+      padding: 0 0.5rem 0 0;
+      border: none;
+      background: transparent;
+      border-radius: 0;
+    }
+
+    .waitlist-input:focus {
+      border-color: transparent;
+      box-shadow: none;
+    }
+
+    .waitlist-button {
+      width: auto;
+      min-height: 3rem;
+    }
   }
 
   .hero-top-nav {
@@ -338,17 +348,7 @@
     }
   }
 
-  @media (min-width: 768px) {
-    .waitlist-controls {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      align-items: stretch;
-    }
-
-    .waitlist-button {
-      white-space: nowrap;
-      padding-inline: 1.2rem;
-    }
-  }
+  /* (Media query for waitlist UI moved up) */
 
   @media (max-width: 640px) {
     .behavior-signal {

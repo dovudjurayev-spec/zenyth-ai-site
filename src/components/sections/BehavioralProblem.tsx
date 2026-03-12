@@ -9,7 +9,7 @@ const BehavioralProblem = () => {
       title="The Behavioral Problem"
       subtitle="The failure is not awareness. The failure is what happens in the exact moment attention shifts."
       className="pt-20 lg:pt-24"
-      contentClassName="grid gap-12 lg:grid-cols-[1.15fr_0.85fr]"
+      contentClassName="grid gap-12 lg:grid-cols-2 lg:items-start"
     >
       <article className="max-w-[34ch]">
         <p className="text-xs uppercase tracking-[0.16em] text-white/50">Core Tension</p>
@@ -17,11 +17,11 @@ const BehavioralProblem = () => {
           Attention defaults to the easiest loop when no structured substitute exists.
         </p>
       </article>
-      <div className="space-y-7">
+      <div className="flex flex-col gap-4">
         {behavioralProblem.map((item, index) => (
-          <article key={item} className="behavior-signal">
-            <p className="text-xs uppercase tracking-[0.16em] text-white/50">Signal 0{index + 1}</p>
-            <p className="mt-2 muted-copy">{item}</p>
+          <article key={item} className="glass-item flex flex-col gap-2">
+            <p className="text-xs uppercase tracking-[0.1em] text-white/50">Signal 0{index + 1}</p>
+            <p className="text-base leading-relaxed text-white/90">{item}</p>
           </article>
         ))}
       </div>
