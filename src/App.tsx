@@ -8,6 +8,8 @@ import MarketOpportunity from "./components/sections/MarketOpportunity";
 import MvpValidation from "./components/sections/MvpValidation";
 import Team from "./components/sections/Team";
 import Contact from "./components/sections/Contact";
+import FinalCta from "./components/sections/FinalCta";
+import Footer from "./components/layout/Footer";
 
 const App = () => {
   return (
@@ -23,7 +25,9 @@ const App = () => {
         <MvpValidation />
         <Team />
         <Contact />
+        <FinalCta />
       </main>
+      <Footer />
     </div>
   );
 };
