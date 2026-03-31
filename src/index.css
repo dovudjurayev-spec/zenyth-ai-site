@@ -18,6 +18,11 @@
   * {
     @apply box-border;
   }
+
+  em {
+    font-style: italic;
+    font-family: Georgia, "Times New Roman", serif;
+  }
 }
 
 @layer components {
@@ -26,21 +31,13 @@
   }
 
   .section-space {
-    @apply py-24 sm:py-28 lg:py-32;
+    padding-top: 120px;
+    padding-bottom: 120px;
+    position: relative;
   }
 
-  .section-shell {
-    position: relative;
-    border-radius: 1.5rem;
-    border: 1px solid rgba(196, 220, 255, 0.12);
-    background:
-      linear-gradient(165deg, rgba(31, 52, 93, 0.26) 0%, rgba(11, 18, 34, 0.18) 50%, rgba(10, 16, 30, 0.24) 100%),
-      rgba(7, 12, 23, 0.4);
-    backdrop-filter: blur(14px);
-    box-shadow:
-      inset 0 1px 0 rgba(228, 238, 255, 0.16),
-      0 18px 34px rgba(2, 8, 18, 0.32);
-    padding: clamp(1.25rem, 2.4vw, 2.5rem);
+  .section-divider {
+    border-bottom: 1px solid rgba(196, 220, 255, 0.08);
   }
 
   .section-content-shell {
@@ -52,11 +49,11 @@
   }
 
   .type-hero {
-    @apply font-heading text-6xl font-semibold tracking-tight sm:text-7xl lg:text-8xl;
+    @apply font-heading text-6xl font-bold tracking-tight sm:text-7xl lg:text-8xl;
   }
 
   .type-section {
-    @apply font-heading text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl;
+    @apply font-heading text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl;
   }
 
   .type-subheading {
@@ -64,7 +61,26 @@
   }
 
   .type-metric {
-    @apply text-3xl font-medium tracking-tight text-white sm:text-4xl;
+    @apply text-3xl font-medium tracking-tight sm:text-4xl;
+    color: #3b82f6;
+  }
+
+  /* Eyebrow labels — blue tint */
+  .eyebrow-label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: rgba(59, 130, 246, 0.7);
+  }
+
+  /* Ambient glow */
+  .ambient-glow {
+    position: absolute;
+    pointer-events: none;
+    border-radius: 9999px;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
+    filter: blur(140px);
   }
 
   .ttl-reveal {
@@ -85,6 +101,7 @@
     animation-delay: 340ms;
   }
 
+  /* Hero */
   .hero-editorial {
     background:
       radial-gradient(120% 85% at 16% 22%, rgba(92, 140, 255, 0.16) 0%, rgba(14, 23, 43, 0) 52%),
@@ -125,31 +142,39 @@
     background: linear-gradient(180deg, rgba(7, 12, 22, 0) 0%, rgba(7, 12, 22, 0.36) 55%, rgba(7, 12, 22, 0.74) 100%);
   }
 
-  .hero-editorial-cta {
-    border-radius: 0.9rem;
-    border: 1px solid rgba(201, 221, 255, 0.24);
-    background: linear-gradient(135deg, rgba(7, 13, 25, 0.98) 0%, rgba(21, 38, 68, 0.95) 100%);
-    box-shadow:
-      0 14px 34px rgba(2, 8, 16, 0.46),
-      inset 0 1px 0 rgba(227, 239, 255, 0.26);
-    color: rgba(255, 255, 255, 0.97);
-    font-size: 1.125rem;
-    font-weight: 500;
-    letter-spacing: -0.012em;
-    transition:
-      transform 200ms ease,
-      border-color 200ms ease,
-      box-shadow 200ms ease;
+  .hero-object-shell {
+    width: min(40rem, 92vw);
+    overflow: visible;
+    position: relative;
   }
 
-  .hero-editorial-cta:hover {
-    transform: translateY(-2px);
-    border-color: rgba(212, 229, 255, 0.38);
-    box-shadow:
-      0 18px 36px rgba(2, 8, 16, 0.52),
-      inset 0 1px 0 rgba(227, 239, 255, 0.32);
+  .hero-object-image {
+    display: block;
+    filter: drop-shadow(0 30px 60px rgba(3, 7, 18, 0.48));
   }
 
+  /* Nav link underline animation */
+  .nav-link {
+    position: relative;
+    transition: color 200ms ease;
+  }
+
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0;
+    height: 1px;
+    background: #3b82f6;
+    transition: width 200ms ease;
+  }
+
+  .nav-link:hover::after {
+    width: 100%;
+  }
+
+  /* Waitlist form */
   .waitlist-form-shell {
     display: flex;
     flex-direction: column;
@@ -169,12 +194,12 @@
   .waitlist-input {
     width: 100%;
     min-height: 3.5rem;
-    border-radius: 0.6rem;
+    border-radius: 9999px;
     border: 1px solid rgba(255, 255, 255, 0.1);
     background: rgba(255, 255, 255, 0.03);
     color: rgba(255, 255, 255, 0.9);
     font-size: 1rem;
-    padding: 0 1.2rem;
+    padding: 0 1.5rem;
     outline: none;
     transition: all 0.2s ease;
   }
@@ -184,7 +209,7 @@
   }
 
   .waitlist-input:focus {
-    border-color: rgba(255, 255, 255, 0.3);
+    border-color: rgba(59, 130, 246, 0.5);
   }
 
   .waitlist-button {
@@ -194,20 +219,20 @@
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    border-radius: 0.5rem;
+    border-radius: 9999px;
     border: none;
     background: #3b82f6;
     color: #ffffff;
     font-size: 1rem;
     font-weight: 600;
-    padding: 0 1.5rem;
+    padding: 11px 32px;
     transition: all 0.2s ease;
     cursor: pointer;
     box-shadow: 0 4px 14px rgba(59, 130, 246, 0.2);
   }
 
   .waitlist-button::after {
-    content: "→";
+    content: "\2192";
     font-family: system-ui, -apple-system, sans-serif;
     font-size: 1.2em;
     font-weight: bold;
@@ -235,13 +260,13 @@
     padding-left: 0.5rem;
   }
 
-  /* Desktop layout: The "Pill" design */
+  /* Desktop waitlist pill */
   @media (min-width: 640px) {
     .waitlist-controls {
       flex-direction: row;
       align-items: center;
       gap: 0;
-      border-radius: 0.75rem;
+      border-radius: 9999px;
       border: 1px solid rgba(255, 255, 255, 0.12);
       background: rgba(255, 255, 255, 0.04);
       padding: 0.35rem 0.35rem 0.35rem 1.25rem;
@@ -268,74 +293,64 @@
     }
   }
 
-  .hero-top-nav {
-    border-radius: 999px;
-    border: 1px solid rgba(188, 213, 255, 0.2);
-    background: rgba(10, 17, 33, 0.42);
-    padding: 0.65rem 1.05rem;
-    backdrop-filter: blur(10px);
-    box-shadow:
-      inset 0 1px 0 rgba(223, 235, 255, 0.14),
-      0 12px 30px rgba(4, 10, 20, 0.24);
-  }
-
-  .hero-copy-panel {
-    border-radius: 1.6rem;
-    border: 1px solid rgba(182, 208, 255, 0.16);
-    background:
-      linear-gradient(165deg, rgba(21, 37, 69, 0.34) 0%, rgba(8, 15, 29, 0.2) 100%),
-      rgba(7, 12, 23, 0.3);
-    backdrop-filter: blur(12px);
-    box-shadow:
-      inset 0 1px 0 rgba(231, 240, 255, 0.13),
-      0 22px 42px rgba(3, 8, 18, 0.28);
-    padding: clamp(1.2rem, 2.2vw, 2.4rem);
-  }
-
-  .hero-visual-panel {
-    border-radius: 1.8rem;
-    border: 1px solid rgba(177, 205, 255, 0.14);
-    background: linear-gradient(160deg, rgba(20, 34, 63, 0.38) 0%, rgba(9, 15, 29, 0.22) 100%);
-    backdrop-filter: blur(8px);
-    box-shadow:
-      inset 0 1px 0 rgba(225, 237, 255, 0.14),
-      0 24px 54px rgba(2, 7, 18, 0.42);
-    padding: clamp(0.5rem, 1vw, 0.8rem);
-  }
-
-  .hero-object-shell {
-    width: min(40rem, 92vw);
-    overflow: visible;
-  }
-
-  .hero-object-image {
-    display: block;
-    filter: drop-shadow(0 30px 60px rgba(3, 7, 18, 0.48));
-  }
-
+  /* Glass cards — redesigned */
   .glass-item {
-    border-radius: 1.15rem;
-    border: 1px solid rgba(185, 210, 255, 0.14);
+    border-radius: 20px;
+    border: 1px solid rgba(185, 210, 255, 0.10);
+    border-left: 2px solid #3b82f6;
     background:
-      linear-gradient(160deg, rgba(31, 53, 96, 0.26) 0%, rgba(11, 18, 34, 0.16) 100%),
-      rgba(8, 14, 26, 0.28);
+      linear-gradient(160deg, rgba(31, 53, 96, 0.20) 0%, rgba(11, 18, 34, 0.12) 100%),
+      rgba(8, 14, 26, 0.32);
     backdrop-filter: blur(10px);
     box-shadow:
-      inset 0 1px 0 rgba(226, 238, 255, 0.11),
-      0 12px 26px rgba(2, 7, 17, 0.26);
-    padding: clamp(0.95rem, 1.4vw, 1.2rem);
+      inset 0 1px 0 rgba(226, 238, 255, 0.08),
+      0 12px 26px rgba(2, 7, 17, 0.22);
+    padding: clamp(1rem, 1.6vw, 1.4rem);
     transition:
-      border-color 0.3s ease,
-      box-shadow 0.3s ease,
-      transform 0.3s ease;
+      border-color 200ms ease,
+      box-shadow 200ms ease,
+      transform 200ms ease;
   }
 
   .glass-item:hover {
-    border-color: rgba(185, 210, 255, 0.26);
+    border-color: rgba(59, 130, 246, 0.4);
+    border-left-color: #3b82f6;
     box-shadow:
-      inset 0 1px 0 rgba(226, 238, 255, 0.16),
-      0 16px 36px rgba(2, 7, 17, 0.34);
+      inset 0 1px 0 rgba(226, 238, 255, 0.12),
+      0 16px 36px rgba(2, 7, 17, 0.30);
     transform: translateY(-2px);
+  }
+
+  /* Marquee strip */
+  .marquee-strip {
+    overflow: hidden;
+    border-top: 1px solid rgba(196, 220, 255, 0.08);
+    border-bottom: 1px solid rgba(196, 220, 255, 0.08);
+    padding: 16px 0;
+    background: rgba(255, 255, 255, 0.02);
+  }
+
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marqueeScroll 30s linear infinite;
+  }
+
+  .marquee-track span {
+    flex-shrink: 0;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.35);
+    white-space: nowrap;
+  }
+
+  /* Validation cycle callout */
+  .validation-callout {
+    background: rgba(59, 130, 246, 0.08);
+    border: 1px solid rgba(59, 130, 246, 0.25);
+    border-radius: 20px;
+    padding: clamp(1rem, 1.6vw, 1.4rem);
   }
 
   @media (max-width: 639px) {
@@ -357,29 +372,20 @@
       height: 34rem;
     }
   }
-
-  /* (Media query for waitlist UI moved up) */
-
-  @media (max-width: 640px) {
-    .behavior-signal {
-      border-radius: 1rem;
-      border: 1px solid rgba(187, 213, 255, 0.22);
-      background:
-        linear-gradient(160deg, rgba(29, 49, 87, 0.34) 0%, rgba(9, 16, 31, 0.2) 100%),
-        rgba(8, 14, 26, 0.3);
-      backdrop-filter: blur(10px);
-      box-shadow:
-        inset 0 1px 0 rgba(223, 236, 255, 0.14),
-        0 10px 24px rgba(2, 8, 18, 0.28);
-      padding: 0.9rem 0.95rem;
-    }
-  }
-
 }
 
 @keyframes ttlReveal {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes marqueeScroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
   }
 }

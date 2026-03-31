@@ -9,7 +9,7 @@ const Footer = () => {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-white/[0.08]">
+    <footer className="border-t border-white/[0.06]">
       <div className="site-container flex flex-col items-center gap-6 py-10 sm:flex-row sm:justify-between">
         <p className="text-sm text-white/40">
           &copy; {year} Zenyth.ai. All rights reserved.

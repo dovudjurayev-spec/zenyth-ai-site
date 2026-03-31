@@ -6,14 +6,17 @@ const OurApproach = () => {
     <Section
       id="approach"
       eyebrow="Intervention Model"
-      title="Our Approach"
+      title={<>Our <em>Approach</em></>}
       subtitle="Behavioral substitution instead of restriction."
       className="py-36 sm:py-40"
       titleClassName="text-5xl sm:text-6xl lg:text-7xl"
       contentClassName="space-y-8"
     >
-      <p className="max-w-[20ch] font-heading text-5xl font-semibold leading-[1.03] tracking-tight text-white sm:text-6xl">
-        Replace the habit loop, do not fight it.
+      <p
+        className="max-w-[20ch] font-heading font-bold leading-[1.03] tracking-tight text-white"
+        style={{ fontSize: "clamp(40px, 5vw, 64px)" }}
+      >
+        Replace the <em>habit loop,</em> do not fight it.
       </p>
       <ul className="grid gap-y-6 text-white/80 sm:grid-cols-2 sm:gap-x-12">
         {approachPoints.map((item) => (

@@ -46,24 +46,33 @@ const FinalCta = () => {
     <section
       ref={ref}
       className="relative overflow-hidden py-28 sm:py-36"
+      style={{
+        background: "radial-gradient(ellipse at center, rgba(59,130,246,0.15) 0%, transparent 70%)"
+      }}
     >
-      {/* Background glow */}
-      <div
-        className="pointer-events-none absolute inset-0"
-        aria-hidden="true"
-        style={{
-          background:
-            "radial-gradient(60% 50% at 50% 50%, rgba(94, 120, 255, 0.10) 0%, rgba(9, 14, 26, 0) 100%)"
-        }}
-      />
-
       <div
         className={`site-container relative text-center transition-all duration-700 ease-out ${
           visible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
         }`}
       >
-        <h2 className="mx-auto max-w-[22ch] font-heading text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl">
-          Ready to replace the scroll?
+        {/* Star logomark */}
+        <svg
+          width="40"
+          height="40"
+          viewBox="0 0 40 40"
+          fill="none"
+          className="mx-auto mb-6"
+          aria-hidden="true"
+        >
+          <path
+            d="M20 0L23.5 14.5L38 12L26 20L38 28L23.5 25.5L20 40L16.5 25.5L2 28L14 20L2 12L16.5 14.5L20 0Z"
+            fill="#3b82f6"
+            fillOpacity="0.7"
+          />
+        </svg>
+
+        <h2 className="mx-auto max-w-[22ch] font-heading text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
+          Ready to replace the <em>scroll?</em>
         </h2>
         <p className="mx-auto mt-6 max-w-[52ch] text-base leading-relaxed text-white/65 sm:text-lg">
           Join the waitlist and be among the first to experience structured sessions designed around your interests.
@@ -90,8 +99,8 @@ const FinalCta = () => {
               </button>
             </div>
             <p className="waitlist-status text-center" aria-live="polite">
-              {status === "success" ? "You're on the list." : null}
-              {status === "duplicate" ? "You're already on the list." : null}
+              {status === "success" ? "You\u2019re on the list." : null}
+              {status === "duplicate" ? "You\u2019re already on the list." : null}
               {status === "error" ? "Something went wrong." : null}
             </p>
           </div>
