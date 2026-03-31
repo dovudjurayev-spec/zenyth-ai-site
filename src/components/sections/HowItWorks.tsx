@@ -37,6 +37,8 @@ const HowItWorks = () => {
             <img
               src={item.src}
               alt={item.alt}
+              width={496}
+              height={1024}
               loading="lazy"
               className="mx-auto block h-auto w-full max-w-[31rem] sm:max-w-[34rem]"
             />

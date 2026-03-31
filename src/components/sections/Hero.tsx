@@ -85,6 +85,8 @@ const Hero = () => {
               src={logoSrc}
               alt="Zenyth.ai"
               className="h-auto w-[6.3rem] sm:w-[7.6rem]"
+              width={122}
+              height={28}
               loading="eager"
               decoding="async"
             />
@@ -190,6 +192,8 @@ const Hero = () => {
                 src={heroObjectSrc}
                 alt="Abstract 3D blue object"
                 className="hero-object-image h-auto w-[120%] max-w-none md:w-[105%] lg:w-[118%]"
+                width={640}
+                height={640}
                 loading="eager"
                 decoding="async"
               />
